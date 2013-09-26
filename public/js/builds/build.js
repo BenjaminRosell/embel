@@ -56788,12 +56788,21 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 ;Ember.TEMPLATES["achievements"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, stack2, hashContexts, hashTypes, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, self=this;
+  var buffer = '', stack1, stack2, hashContexts, hashTypes, options, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, self=this;
 
 function program1(depth0,data) {
   
-  
-  data.buffer.push("\n            ");
+  var buffer = '', hashTypes, hashContexts;
+  data.buffer.push("\n                <li>");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "title", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(" - ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "achievedAt", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</li>\n            ");
+  return buffer;
   }
 
 function program3(depth0,data) {
@@ -56816,7 +56825,7 @@ function program3(depth0,data) {
   hashContexts = {};
   stack2 = helpers.each.call(depth0, "controller", {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("      \n        </ul>\n\n\n\n    </div>\n</div>");
+  data.buffer.push("      \n        </ul>\n    </div>\n</div>");
   return buffer;
   
 });
@@ -56860,7 +56869,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 
 App.ApplicationAdapter = DS.RESTAdapter.extend({
   namespace: 'api',
-  host: 'http://localhost/kit/public'
+  host: 'http://localhost/embel/public'
 });
 
 var attr = DS.attr;;App.Achievement = DS.Model.extend({

@@ -9,17 +9,7 @@ class AchievementsController extends BaseController {
 	 */
 	public function index()
 	{
-        return Achievement::all();
-	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-        return View::make('achievements.create');
+        return array('achievements' => Achievement::all()->toArray());
 	}
 
 	/**
@@ -29,7 +19,13 @@ class AchievementsController extends BaseController {
 	 */
 	public function store()
 	{
-		//
+		$achievement = new Achievement;
+		$achievement->title = Input::get('title');
+		$achievement->achieved_at = Input::get('achieved_at');
+
+		$achievement->save();
+
+		return array('achievements' => $achievement->toArray());
 	}
 
 	/**
@@ -40,18 +36,7 @@ class AchievementsController extends BaseController {
 	 */
 	public function show($id)
 	{
-        return View::make('achievements.show');
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-        return View::make('achievements.edit');
+        return array('achievements' => Achievement::find($id)->toArray());
 	}
 
 	/**
@@ -62,7 +47,13 @@ class AchievementsController extends BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$achievement = Achievement::find($id);
+		$achievement->title = Input::get('title');
+		$achievement->achieved_at = Input::get('achieved_at');
+
+		$achievement->save();
+
+		return array('achievements' => $achievement->toArray());
 	}
 
 	/**
@@ -73,7 +64,10 @@ class AchievementsController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$achievement = Achievement::find($id);
+		$achievement->delete();
+
+		return Response::make(null, 204);
 	}
 
 }
