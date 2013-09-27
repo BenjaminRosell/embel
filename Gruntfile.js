@@ -74,7 +74,8 @@ module.exports = function(grunt) {
               'public/js/libs/handlebars/handlebars.js',
               'public/js/libs/ember/ember.js',
               'public/js/libs/ember-data-shim/ember-data.js',
-              'public/js/libs/bootstrap/dist/js/bootstrap.js'],
+              'public/js/libs/bootstrap/dist/js/bootstrap.js',
+              'public/js/libs/momentjs/moment.js'],
         dest: 'public/js/builds/libs.js',
         options: {
           separator: ';',

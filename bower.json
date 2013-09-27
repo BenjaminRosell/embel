@@ -20,6 +20,7 @@
     "ember": "~1.0.0",
     "ember-data": "~1.0.0-beta.2",
     "bootstrap": "~3.0.0",
-    "ember-data-shim": "1.0.0-beta.2"
+    "ember-data-shim": "1.0.0-beta.2",
+    "momentjs": "*"
   }
 }

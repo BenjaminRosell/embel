@@ -19,9 +19,10 @@ class AchievementsController extends BaseController {
 	 */
 	public function store()
 	{
+		$input = Input::get('achievement');
 		$achievement = new Achievement;
-		$achievement->title = Input::get('title');
-		$achievement->achieved_at = Input::get('achieved_at');
+		$achievement->title = $input["title"];
+		$achievement->achieved_at = date('Y-m-d H:i:s', strtotime($input["achieved_at"]));
 
 		$achievement->save();
 
@@ -36,7 +37,7 @@ class AchievementsController extends BaseController {
 	 */
 	public function show($id)
 	{
-        return array('achievements' => Achievement::find($id)->toArray());
+        return array('achievement' => Achievement::find($id)->toArray());
 	}
 
 	/**
@@ -53,7 +54,7 @@ class AchievementsController extends BaseController {
 
 		$achievement->save();
 
-		return array('achievements' => $achievement->toArray());
+		return array('achievement' => $achievement->toArray());
 	}
 
 	/**

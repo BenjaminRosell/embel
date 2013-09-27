@@ -8,3 +8,9 @@ App.ApplicationAdapter = DS.RESTAdapter.extend({
 });
 
 var attr = DS.attr;
+
+Ember.Handlebars.registerBoundHelper('date', 
+    function(date) {
+        return moment(date).format('DD/MM/YYYY');
+    }
+);

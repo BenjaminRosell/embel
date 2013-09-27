@@ -6,7 +6,23 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   var buffer = '', hashTypes, hashContexts;
-  data.buffer.push("\n                <li>");
+  data.buffer.push("\n                <span class=\"help-block\">");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "errorMessage", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</span>\n            ");
+  return buffer;
+  }
+
+function program3(depth0,data) {
+  
+  var buffer = '', stack1, hashTypes, hashContexts, options;
+  data.buffer.push("\n                <li><em><strong>");
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.date || depth0.date),stack1 ? stack1.call(depth0, "achieved_at", options) : helperMissing.call(depth0, "date", "achieved_at", options))));
+  data.buffer.push("</strong></em> - ");
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "title", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
@@ -14,25 +30,41 @@ function program1(depth0,data) {
   return buffer;
   }
 
-function program3(depth0,data) {
+function program5(depth0,data) {
   
   
   data.buffer.push("\n                <li><h4>There are no achievements</h4></li>\n            ");
   }
 
-  data.buffer.push("<div class=\"row\">\n    <div class=\"col-md-4\">Lists</div>\n    <div class=\"col-md-8\">\n        <form class=\"form-inline\" role=\"form\">\n          <div class=\"form-group col-md-7\">\n            <label class=\"sr-only\" for=\"exampleInputEmail2\">Email address</label>\n            ");
-  hashContexts = {'type': depth0,'class': depth0,'placeholder': depth0};
-  hashTypes = {'type': "ID",'class': "STRING",'placeholder': "STRING"};
+  data.buffer.push("<div class=\"row\">\n    <div class=\"col-md-4\">Lists</div>\n    <div class=\"col-md-8\">\n        <form class=\"form-inline\" role=\"form\">\n          <div ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'class': (":form-group :col-md-7 isValid::has-error")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">\n            <label class=\"sr-only\" for=\"exampleInputEmail2\">Email address</label>\n            ");
+  hashContexts = {'type': depth0,'class': depth0,'placeholder': depth0,'value': depth0};
+  hashTypes = {'type': "ID",'class': "STRING",'placeholder': "STRING",'value': "ID"};
   options = {hash:{
     'type': ("text"),
     'class': ("form-control"),
-    'placeholder': ("Enter Email")
+    'placeholder': ("Enter Email"),
+    'value': ("newAchievement")
   },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers.input || depth0.input),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "input", options))));
-  data.buffer.push("\n          </div>\n          <button type=\"submit\" class=\"btn btn-default\">Add</button>\n        </form>\n\n        <h3>Achievements</h3>\n        <hr>\n        \n        <ul>\n            ");
+  data.buffer.push("\n            ");
   hashTypes = {};
   hashContexts = {};
-  stack2 = helpers.each.call(depth0, "controller", {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  stack2 = helpers.unless.call(depth0, "isValid", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n          </div>\n          <button type=\"submit\" class=\"btn btn-default\" ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "addAchievement", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">Add</button>\n        </form>\n\n        <h3>Achievements</h3>\n        <hr>\n        \n        <ul>\n            ");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers.each.call(depth0, "controller", {hash:{},inverse:self.program(5, program5, data),fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("      \n        </ul>\n    </div>\n</div>");
   return buffer;
