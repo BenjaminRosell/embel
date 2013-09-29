@@ -61,6 +61,7 @@ module.exports = function(grunt) {
           'ember/routes.js',
           'ember/routes/*.js',
           'ember/controllers/*.js',
+          'ember/controllers/*/*.js',
           'ember/views/*.js'
         ],
         dest: 'public/js/builds/app.js',

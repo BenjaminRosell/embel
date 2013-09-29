@@ -1,20 +1,17 @@
 <div class="row">
-    <div class="col-md-4">Lists</div>
+    <div class="col-md-4"><h3>Lists</h3></div>
     <div class="col-md-8">
-        <form class="form-inline" role="form">
-          <div {{ bindAttr class=":form-group :col-md-7 isValid::has-error"}}>
-            <label class="sr-only" for="exampleInputEmail2">Email address</label>
-            {{input type=text class="form-control" placeholder="Enter Email" value=newAchievement }}
-            {{#unless isValid}}
-                <span class="help-block">{{errorMessage}}</span>
-            {{/unless}}
-          </div>
-          <button type="submit" class="btn btn-default" {{ action addAchievement }}>Add</button>
-        </form>
+       {{outlet}}
 
-        <h3>Achievements</h3>
+        <div class="pull-left">
+            <h3>Achievements</h3>
+        </div>
+        <div class="pull-right">
+            <br>
+            {{#linkTo "achievements.new" class="btn btn-primary"}}Add{{/linkTo}}
+        </div>
+        <div class="clearfix"></div>
         <hr>
-        
         <ul>
             {{#each controller}}
                 <li><em><strong>{{ date achieved_at }}</strong></em> - {{title}}</li>

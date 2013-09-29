@@ -58563,9 +58563,15 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 ;Ember.TEMPLATES["achievements"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
-  var buffer = '', stack1, stack2, hashContexts, hashTypes, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, self=this;
+  var buffer = '', stack1, stack2, hashTypes, hashContexts, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, self=this;
 
 function program1(depth0,data) {
+  
+  
+  data.buffer.push("Add");
+  }
+
+function program3(depth0,data) {
   
   var buffer = '', stack1, hashTypes, hashContexts, options;
   data.buffer.push("\n                <li><em><strong>");
@@ -58581,30 +58587,28 @@ function program1(depth0,data) {
   return buffer;
   }
 
-function program3(depth0,data) {
+function program5(depth0,data) {
   
   
   data.buffer.push("\n                <li><h4>There are no achievements</h4></li>\n            ");
   }
 
-  data.buffer.push("<div class=\"row\">\n    <div class=\"col-md-4\">Lists</div>\n    <div class=\"col-md-8\">\n        <form class=\"form-inline\" role=\"form\">\n          <div class=\"form-group col-md-7\">\n            <label class=\"sr-only\" for=\"exampleInputEmail2\">Email address</label>\n            ");
-  hashContexts = {'type': depth0,'class': depth0,'placeholder': depth0,'value': depth0};
-  hashTypes = {'type': "ID",'class': "STRING",'placeholder': "STRING",'value': "ID"};
+  data.buffer.push("<div class=\"row\">\n    <div class=\"col-md-4\"><h3>Lists</h3></div>\n    <div class=\"col-md-8\">\n       ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "outlet", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n\n        <div class=\"pull-left\">\n            <h3>Achievements</h3>\n        </div>\n        <div class=\"pull-right\">\n            <br>\n            ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
   options = {hash:{
-    'type': ("text"),
-    'class': ("form-control"),
-    'placeholder': ("Enter Email"),
-    'value': ("newAchievement")
-  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers.input || depth0.input),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "input", options))));
-  data.buffer.push("\n          </div>\n          <button type=\"submit\" class=\"btn btn-default\" ");
+    'class': ("btn btn-primary")
+  },inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers.linkTo || depth0.linkTo),stack1 ? stack1.call(depth0, "achievements.new", options) : helperMissing.call(depth0, "linkTo", "achievements.new", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n        </div>\n        <div class=\"clearfix\"></div>\n        <hr>\n        <ul>\n            ");
   hashTypes = {};
   hashContexts = {};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "addAchievement", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
-  data.buffer.push(">Add</button>\n        </form>\n\n        <h3>Achievements</h3>\n        <hr>\n        \n        <ul>\n            ");
-  hashTypes = {};
-  hashContexts = {};
-  stack2 = helpers.each.call(depth0, "controller", {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  stack2 = helpers.each.call(depth0, "controller", {hash:{},inverse:self.program(5, program5, data),fn:self.program(3, program3, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("      \n        </ul>\n    </div>\n</div>");
   return buffer;
@@ -58655,6 +58659,52 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 
   data.buffer.push("<h4>This is the test template.</h4>");
   
+});
+
+Ember.TEMPLATES["achievements/new"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, stack2, hashContexts, hashTypes, options, escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = '', hashTypes, hashContexts;
+  data.buffer.push("\n        <span class=\"help-block\">");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "errorMessage", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push("</span>\n    ");
+  return buffer;
+  }
+
+  data.buffer.push(" <form class=\"form-inline\" role=\"form\">\n  <div ");
+  hashContexts = {'class': depth0};
+  hashTypes = {'class': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'class': (":form-group :col-md-7 isValid::has-error")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">\n    <label class=\"sr-only\" for=\"exampleInputEmail2\">Email address</label>\n    ");
+  hashContexts = {'type': depth0,'class': depth0,'placeholder': depth0,'value': depth0};
+  hashTypes = {'type': "ID",'class': "STRING",'placeholder': "STRING",'value': "ID"};
+  options = {hash:{
+    'type': ("text"),
+    'class': ("form-control"),
+    'placeholder': ("Enter Email"),
+    'value': ("newAchievement")
+  },contexts:[],types:[],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.input || depth0.input),stack1 ? stack1.call(depth0, options) : helperMissing.call(depth0, "input", options))));
+  data.buffer.push("\n    ");
+  hashTypes = {};
+  hashContexts = {};
+  stack2 = helpers.unless.call(depth0, "isValid", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n  </div>\n  <button type=\"submit\" class=\"btn btn-default\" ");
+  hashTypes = {};
+  hashContexts = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "addAchievement", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  data.buffer.push(">Add</button>\n</form>\n<div class=\"clearfix\"></div>");
+  return buffer;
+  
 });;App = Ember.Application.create({
   LOG_TRANSITIONS: true
 });
@@ -58676,7 +58726,9 @@ Ember.Handlebars.registerBoundHelper('date',
 });
   ;App.Router.map(function() {
     this.route("index", { path: "/" });
-    this.route("achievements");
+    this.resource("achievements", function() {
+        this.route("new");
+    });
 });;App.AchievementsRoute = Ember.Route.extend({
   model: function() {
       var store = this.get('store');
@@ -58686,10 +58738,76 @@ Ember.Handlebars.registerBoundHelper('date',
 ;App.AchievementsController = Ember.ArrayController.extend({
   sortProperties: [ 'achieved_at' ],
   sortAscending: false,
-  addAchievement: App.Achievement.createRecord(function(){
-    App.Achievement.createRecord({
-        title: this.get('newAchievement'),
-        achieved_at: new Date()
-    });
-  })
+});;App.AchievementsNewController = Ember.Controller.extend({
+  isValid: (function(){
+    msg = "";
+    isValid = true;
+    str = this.get('newAchievement');
+    day = /\bd\d\d\b/.exec(str);
+    month = /\bm\d\d\b/.exec(str);
+
+    if(!str) {
+        isValid = false;
+        msg += "Field cannot be empty, fool !";
+    }
+
+    if (day) {
+        if ( parseInt(day[0].split('d')[1], 10) > 31 ) {
+            isValid = false;
+            msg += 'Invalid day idiot !';
+        }
+    }
+
+    if (month) {
+        if (parseInt(month[0].split('m')[1], 10) > 12 ) {
+            isValid = false;
+            msg += 'Invalid month idiot !';
+        }
+    }
+
+    this.set('errorMessage', msg);
+    return isValid;
+  }).property('newAchievement'),
+
+  actions: {
+    addAchievement: function() {
+      data = this.parseInput(this.get('newAchievement'));
+      var achievement = this.store.createRecord('achievement', {
+        title: data.title,
+        achieved_at: data.achieved_at
+      });
+      this.set('newAchievement', '');
+      achievement.save();
+    }
+  },
+  parseInput: function(str) {
+    day = /\bd\d\d\b/.exec(str);
+    month = /\bm\d\d\b/.exec(str);
+    year = /\by\d{4}\b/.exec(str);
+
+    achieved_at = new Date();
+    title = str;
+
+    if (day) {
+        title = title.replace(day[0], "");
+        achieved_at.setDate(day[0].split('d')[1]);
+    }
+
+    if (month) {
+        title = title.replace(month[0], "");
+        achieved_at.setMonth(parseInt(month[0].split('m')[1], 10) - 1);
+    }
+
+    if (year) {
+        title = title.replace(year[0], "");
+        achieved_at.setYear(year[0].split('y')[1]);
+    }
+
+    title.replace(/\s+/, " ");
+
+    return {
+        title : title,
+        achieved_at : achieved_at
+    };
+  }
 });

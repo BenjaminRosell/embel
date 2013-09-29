@@ -1,0 +1,11 @@
+ <form class="form-inline" role="form">
+  <div {{ bindAttr class=":form-group :col-md-7 isValid::has-error"}}>
+    <label class="sr-only" for="exampleInputEmail2">Email address</label>
+    {{input type=text class="form-control" placeholder="Enter new achievement" value=newAchievement }}
+    {{#unless isValid}}
+        <span class="help-block">{{errorMessage}}</span>
+    {{/unless}}
+  </div>
+  <button type="submit" class="btn btn-default" {{ action addAchievement }}>Add</button>
+</form>
+<div class="clearfix"></div>

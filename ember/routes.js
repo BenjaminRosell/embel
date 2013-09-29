@@ -1,4 +1,6 @@
 App.Router.map(function() {
     this.route("index", { path: "/" });
-    this.route("achievements");
+    this.resource("achievements", function() {
+        this.route("new");
+    });
 });
